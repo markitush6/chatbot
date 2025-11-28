@@ -32,7 +32,7 @@ st.markdown(
 )
 
 with st.sidebar:
-    st.markdown('<div class="sidebar-top">', unsafe_allow_html=True)
+    st.markdown('<body><div class="sidebar-top">', unsafe_allow_html=True)
     st.write("📂 Apartados principales")
     if st.button("Historial"):
         if "titulo_chat" in st.session_state:
@@ -59,7 +59,7 @@ with st.sidebar:
             del st.session_state.titulo_chat
         st.rerun()
 
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown('</div></body>', unsafe_allow_html=True)
 
 chat_model = ChatGoogleGenerativeAI(model=selected_model, temperature=temperature)
 
