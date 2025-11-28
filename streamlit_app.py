@@ -9,10 +9,16 @@ st.markdown("Este es un *chatbot de ejemplo* construido con LangChain + Streamli
 st.markdown(
     """
     <style>
+    body { 
+        background-color: #e0ffe0;
+    }
     [data-testid="stSidebar"] > div:first-child {
         display: flex;
         flex-direction: column;
         height: 100%;
+    }
+    sidebar {
+        background-color: #d0f0c0;
     }
     .sidebar-top {
         flex-grow: 1; 
