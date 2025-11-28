@@ -2,6 +2,7 @@ import streamlit as st
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import AIMessage, HumanMessage
 
+st.markdown('<body>', unsafe_allow_html=True)
 st.set_page_config(page_title="Chatbot Básico", page_icon="🤖")
 st.title("🤖 Chatbot - paso 2 - con LangChain")
 st.markdown("Este es un *chatbot de ejemplo* construido con LangChain + Streamlit.")
@@ -32,7 +33,7 @@ st.markdown(
 )
 
 with st.sidebar:
-    st.markdown('<body><div class="sidebar-top">', unsafe_allow_html=True)
+    st.markdown('<div class="sidebar-top">', unsafe_allow_html=True)
     st.write("📂 Apartados principales")
     if st.button("Historial"):
         if "titulo_chat" in st.session_state:
