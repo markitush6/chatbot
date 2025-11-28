@@ -64,6 +64,7 @@ for msg in st.session_state.mensajes:
         st.markdown(msg.content)
 
 pregunta = st.chat_input("Escribe tu mensaje:")
+chat_model = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.7)
 
 if pregunta:
     with st.chat_message("user"):
