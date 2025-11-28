@@ -2,8 +2,8 @@ import streamlit as st
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import AIMessage, HumanMessage
 
-st.markdown('<body>', unsafe_allow_html=True)
 st.set_page_config(page_title="Chatbot Básico", page_icon="🤖")
+st.markdown('<body>', unsafe_allow_html=True)
 st.title("🤖 Chatbot - paso 2 - con LangChain")
 st.markdown("Este es un *chatbot de ejemplo* construido con LangChain + Streamlit.")
 
@@ -49,7 +49,7 @@ with st.sidebar:
     st.divider()
     st.write("⚙️ Configuración avanzada")
 
-    model_options = ["gemini-2.5-flash", "gemini-1.5-flash", "gemini-1.5-pro"]
+    model_options = ["gemini-1.5-flash", "gemini-1.5-pro"]
     selected_model = st.selectbox("Selecciona el modelo", model_options, index=0)
 
     temperature = st.slider("Temperatura", 0.0, 1.0, 0.7, 0.1)
@@ -91,4 +91,3 @@ if pregunta:
     with st.chat_message("assistant"):
         st.markdown(respuesta.content)
     st.session_state.mensajes.append(respuesta)
-    
