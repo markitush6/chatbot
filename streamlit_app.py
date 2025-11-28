@@ -3,7 +3,6 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import AIMessage, HumanMessage
 
 st.set_page_config(page_title="Chatbot Básico", page_icon="🤖")
-st.markdown('<body>', unsafe_allow_html=True)
 st.title("🤖 Chatbot - paso 2 - con LangChain")
 st.markdown("Este es un *chatbot de ejemplo* construido con LangChain + Streamlit.")
 
@@ -18,15 +17,8 @@ st.markdown(
         flex-direction: column;
         height: 100%;
     }
-    sidebar {
-        background-color: #d0f0c0;
-    }
-    .sidebar-top {
-        flex-grow: 1; 
-    }
-    .sidebar-bottom {
-        margin-top: 0; 
-    }
+    .sidebar-top { flex-grow: 1; }
+    .sidebar-bottom { margin-top: 0; }
     </style>
     """,
     unsafe_allow_html=True
@@ -59,11 +51,9 @@ with st.sidebar:
         if "titulo_chat" in st.session_state:
             del st.session_state.titulo_chat
         st.rerun()
-
-    st.markdown('</div></body>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
 chat_model = ChatGoogleGenerativeAI(model=selected_model, temperature=temperature)
-
 
 if "mensajes" not in st.session_state:
     st.session_state.mensajes = []
@@ -80,7 +70,7 @@ if pregunta:
         st.markdown(pregunta)
     st.session_state.mensajes.append(HumanMessage(content=pregunta))
 
-    respuesta = chat_model.invoke(st.session_state.mensajes)
+    respuesta = chat_model.invoke([HumanMessage(content=pregunta)])
     with st.chat_message("assistant"):
         st.markdown(respuesta.content)
     st.session_state.mensajes.append(respuesta)
