@@ -79,6 +79,6 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage
 
-chat = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.7)
+chat = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0.7)
 resp = chat.invoke([HumanMessage(content="Hola, ¿qué tal?")])
 st.write(resp.content)
