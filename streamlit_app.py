@@ -64,10 +64,6 @@ with st.sidebar:
 
 chat_model = ChatGoogleGenerativeAI(model=selected_model, temperature=temperature)
 
-def generar_titulo(texto):
-    prompt = f"Genera un título muy breve (máximo 5 palabras) que resuma esta pregunta: {texto}"
-    resp = chat_model.invoke([HumanMessage(content=prompt)])
-    return resp.content
 
 if "mensajes" not in st.session_state:
     st.session_state.mensajes = []
@@ -83,9 +79,6 @@ if pregunta:
     with st.chat_message("user"):
         st.markdown(pregunta)
     st.session_state.mensajes.append(HumanMessage(content=pregunta))
-
-    if "titulo_chat" not in st.session_state:
-        st.session_state.titulo_chat = generar_titulo(pregunta)
 
     respuesta = chat_model.invoke(st.session_state.mensajes)
     with st.chat_message("assistant"):
