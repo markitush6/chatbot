@@ -24,34 +24,34 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-with st.sidebar:
-    st.markdown('<div class="sidebar-top">', unsafe_allow_html=True)
-    st.write("📂 Apartados principales")
-    if st.button("Historial"):
-        if "titulo_chat" in st.session_state:
-            st.write(f"**Chat Actual:** {st.session_state.titulo_chat}")
-        else:
-            st.write("No hay historial activo.")
-    if st.button("Ayuda"):
-        st.write("Aquí mostrarías la ayuda o documentación")
-    st.markdown('</div>', unsafe_allow_html=True)
+# with st.sidebar:
+#     st.markdown('<div class="sidebar-top">', unsafe_allow_html=True)
+#     st.write("📂 Apartados principales")
+#     if st.button("Historial"):
+#         if "titulo_chat" in st.session_state:
+#             st.write(f"**Chat Actual:** {st.session_state.titulo_chat}")
+#         else:
+#             st.write("No hay historial activo.")
+#     if st.button("Ayuda"):
+#         st.write("Aquí mostrarías la ayuda o documentación")
+#     st.markdown('</div>', unsafe_allow_html=True)
 
-with st.sidebar:
-    st.markdown('<div class="sidebar-bottom">', unsafe_allow_html=True)
-    st.divider()
-    st.write("⚙️ Configuración avanzada")
+# with st.sidebar:
+#     st.markdown('<div class="sidebar-bottom">', unsafe_allow_html=True)
+#     st.divider()
+#     st.write("⚙️ Configuración avanzada")
 
-    model_options = ["gemini-1.5-flash", "gemini-1.5-pro"]
-    selected_model = st.selectbox("Selecciona el modelo", model_options, index=0)
+#     model_options = ["gemini-1.5-flash", "gemini-1.5-pro"]
+#     selected_model = st.selectbox("Selecciona el modelo", model_options, index=0)
 
-    temperature = st.slider("Temperatura", 0.0, 1.0, 0.7, 0.1)
+#     temperature = st.slider("Temperatura", 0.0, 1.0, 0.7, 0.1)
 
-    if st.button("Limpiar Chat"):
-        st.session_state.mensajes = []
-        if "titulo_chat" in st.session_state:
-            del st.session_state.titulo_chat
-        st.rerun()
-    st.markdown('</div>', unsafe_allow_html=True)
+#     if st.button("Limpiar Chat"):
+#         st.session_state.mensajes = []
+#         if "titulo_chat" in st.session_state:
+#             del st.session_state.titulo_chat
+#         st.rerun()
+#     st.markdown('</div>', unsafe_allow_html=True)
 
 chat_model = ChatGoogleGenerativeAI(model=selected_model, temperature=temperature)
 
