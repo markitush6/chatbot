@@ -53,7 +53,7 @@ st.markdown(
 #         st.rerun()
 #     st.markdown('</div>', unsafe_allow_html=True)
 
-chat_model = ChatGoogleGenerativeAI(model=selected_model, temperature=temperature)
+# chat_model = ChatGoogleGenerativeAI(model=selected_model, temperature=temperature)
 
 if "mensajes" not in st.session_state:
     st.session_state.mensajes = []
