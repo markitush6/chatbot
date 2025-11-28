@@ -10,7 +10,7 @@ st.markdown("Este es un *chatbot de ejemplo* construido con LangChain + Streamli
 st.markdown(
     """
     <style>
-    body { 
+    .stapp { 
         background-color: #e0ffe0;
     }
     [data-testid="stSidebar"] > div:first-child {
